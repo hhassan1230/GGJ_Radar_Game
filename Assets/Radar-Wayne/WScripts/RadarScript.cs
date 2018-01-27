@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RadarScript : MonoBehaviour {
 
-	//public Sprite radarBlip;
-	public float timer = 2.0f;
+	public GUITexture radarBlip;
+	public float timer = 2.0f; //Something to comment out...
 	private bool blink = false;
 	//Collider2D collider;
 
@@ -17,18 +17,19 @@ public class RadarScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rotateObject ();
+			rotateObject ();
+
 		//
-//		timer -= Time.deltaTime;
-//		if (timer <= 0) {
-//			timer = 2.0f;
-//			blink = true;
-//		}
-//		if (blink == true) {
-//			Debug.Log ("Blink: " + blink);
-//
-//			blink = false;
-//		}
+		timer -= Time.deltaTime;
+		if (timer <= 0) {
+			timer = 2.0f;
+			blink = true;
+		}
+		if (blink == true) {
+			Debug.Log ("Blink: " + blink);
+
+			blink = false;
+		}
 	}
 
 	void rotateObject(){
@@ -48,15 +49,15 @@ public class RadarScript : MonoBehaviour {
 		Collider2D collider;
 
 		//Access the RadarObserver script and try to get value associated within Dictionary.
-		  if (RadarObserver.colliders.TryGetValue(col.gameObject, out collider)) {
-			 Debug.Log (System.String.Format ("<color=yellow>Got Collider!</color>"));
-			 collider.enabled = false;
-		 }
+//		  if (RadarObserver.colliders.TryGetValue(col.gameObject, out collider)) {
+//			 Debug.Log (System.String.Format ("<color=yellow>Got Collider!</color>"));
+//			 collider.enabled = false;
+//		 }
 			
 		if(col.gameObject.tag == "Player")
 		{
 			Debug.Log (System.String.Format ("<color=red>Hit!</color>"));
-			//Destroy(col.gameObject);
+			Destroy(col.gameObject);
 		}
 	}
 
