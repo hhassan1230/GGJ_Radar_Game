@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PuzzleManager : MonoBehaviour {
+	public static PuzzleManager instance;
 
     public GameObject TextBox;
     public int Number1;
@@ -13,7 +14,16 @@ public class PuzzleManager : MonoBehaviour {
     public int Number5;
     public int Number6;
 
+	void Awake()
+	{
+		if(instance == null)
+		{
+			instance = this;
+		}
+	}
+
     public void CheckInput() {
+		
         for(int i=1; i <7; i++) {
 
         }
@@ -29,6 +39,10 @@ public class PuzzleManager : MonoBehaviour {
         TextBox.GetComponent<Text>().text = "" + Number1 + Number2 + Number3 + Number4 + Number5 + Number6;
 
     }
+
+	public void CurrentlyPressed(string num) {
+		print ("Calling button preesed in PuzzleManager. The Num is " + num);
+	}
 
     // Update is called once per frame
     void Update() {
