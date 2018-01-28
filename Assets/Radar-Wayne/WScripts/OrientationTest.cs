@@ -27,10 +27,16 @@ public class OrientationTest : MonoBehaviour {
 		//
 		if (Input.deviceOrientation == DeviceOrientation.FaceDown) {
 			textbox.text = "Device Orientation: FaceDown";
+			CoolDown ();
 			isCount = false;
 		} else if (Input.deviceOrientation == DeviceOrientation.FaceUp) {
 			textbox.text = "Device Orientation: FaceUp";
 			isCount = true;
 		}
+	}
+
+	IEnumerator CoolDown(){
+		yield return new WaitForSeconds (2f);
+		timer = 30f;
 	}
 }
