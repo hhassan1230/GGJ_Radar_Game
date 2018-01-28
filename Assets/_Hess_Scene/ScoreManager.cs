@@ -5,15 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour {
 	public static ScoreManager instance;
 
-//	private Dictionary dictionary = new Dictionary.<String, int>();
 	static Dictionary<string, float> PlayersScores = new Dictionary<string, float>();
-
-
-
-//	float player1Score;
-//	float player2Score;
-//	float player3Score;
-//	float player4Score;
 
 	// Use this for initialization Singleton
 	void Awake()
@@ -24,6 +16,7 @@ public class ScoreManager : MonoBehaviour {
 			instance = this;
 		}
 	}
+
 	// Use this for initialization
 	void Start () {
 		PlayersScores.Add("player1Score", 0f);
@@ -31,13 +24,27 @@ public class ScoreManager : MonoBehaviour {
 		PlayersScores.Add("player3Score", 0f);
 		PlayersScores.Add("player4Score", 0f);
 
-
 		print ("P1 " + PlayersScores["player1Score"]);
 	}
 
-	public void updateScore(float addtion, int playerNum) {
+	string PlayerFinder (int playerNum) {
 		string updatedPlayer = "player" + playerNum + "Score";
-		print ("Player is " + updatedPlayer);
+		return updatedPlayer;
+	}
+
+	public void updateScore(float addtion, int playerNum) {
+		string updatedPlayer = PlayerFinder (playerNum);
+		PlayersScores [updatedPlayer] += addtion;
+		if (PlayersScores [updatedPlayer] >= 100f) {
+			// That player wins!
+		}
+		print ("Player " + playerNum + " is at " + PlayersScores [updatedPlayer]);
+	}
+
+	public void ResetScore(int playerNum) {
+		string updatedPlayer = PlayerFinder (playerNum);
+		PlayersScores [updatedPlayer] = 0f;
+		print ("Player " + playerNum + " has been reset to " + PlayersScores [updatedPlayer]);
 	}
 	
 	// Update is called once per frame
@@ -45,6 +52,11 @@ public class ScoreManager : MonoBehaviour {
 		if (Input.GetKeyDown ("space")) {
 			updateScore (4f, 3);
 			print("space key was pressed");
+
+		}
+		if (Input.GetKeyDown (KeyCode.A)) {
+			ResetScore (3);
+			print("A key was pressed");
 
 		}
 	}
