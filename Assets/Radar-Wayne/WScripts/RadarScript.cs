@@ -7,12 +7,17 @@ public class RadarScript : MonoBehaviour {
 	public GUITexture radarBlip;
 	public float timer = 2.0f; //Something to comment out...
 	private bool blink = false;
+	public float speed = 0.5f;
 	//Collider2D collider;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		InvokeRepeating ("SpeedUp", 10f, 3f);
+	}
+
+	void SpeedUp() {
+		speed += 1f;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +38,7 @@ public class RadarScript : MonoBehaviour {
 	}
 
 	void rotateObject(){
-		transform.Rotate(Vector3.forward * 0.5f);
+		transform.Rotate(Vector3.forward * speed);
 	}
 
 //	void OnTriggerEnter(Collider col){
