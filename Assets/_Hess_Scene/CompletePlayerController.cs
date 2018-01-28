@@ -39,5 +39,8 @@ public class CompletePlayerController : MonoBehaviour {
 		{
 			other.gameObject.SetActive(false);
 		}
+		if (other.gameObject.CompareTag ("Ends")) {
+			gameObject.SetActive(false);
+		}
 	}
 }

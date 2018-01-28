@@ -8,6 +8,7 @@ TagManager:
   - radar-scan
   - Goal
   - PickUp
+  - Ends
   layers:
   - Default
   - TransparentFX
