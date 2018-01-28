@@ -6,6 +6,7 @@ TagManager:
   tags:
   - radar
   - radar-scan
+  - Goal
   layers:
   - Default
   - TransparentFX
