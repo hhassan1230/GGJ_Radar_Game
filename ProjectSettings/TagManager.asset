@@ -44,3 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PartlyTop
+    uniqueID: 294955735
+    locked: 0
+  - name: Light
+    uniqueID: 1518759271
+    locked: 0
+  - name: Radar
+    uniqueID: 955144739
+    locked: 0
+  - name: Background
+    uniqueID: 2678551133
+    locked: 0
