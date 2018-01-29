@@ -41,14 +41,6 @@ public class RadarScript : MonoBehaviour {
 		transform.Rotate(Vector3.forward * speed);
 	}
 
-//	void OnTriggerEnter(Collider col){
-//		if(col.gameObject.tag == "Player")
-//		{
-//			//Destroy(col.gameObject);
-//			Debug.Log("Touch");
-//		}
-//	}
-
 	void OnTriggerEnter2D(Collider2D col){
 		//Debug.Log ("Touch");
 		Collider2D collider;
@@ -65,13 +57,4 @@ public class RadarScript : MonoBehaviour {
 			Destroy(col.gameObject);
 		}
 	}
-
-//	void OnTriggerExit2D(Collider2D col){
-//		Collider2D collider;
-//		//
-//		if (RadarObserver.colliders.TryGetValue(col.gameObject, out collider)) {
-//			Debug.Log (System.String.Format ("<color=yellow>Exit Collider!</color>"));
-//			collider.enabled = true;
-//		}
-//	}
 }

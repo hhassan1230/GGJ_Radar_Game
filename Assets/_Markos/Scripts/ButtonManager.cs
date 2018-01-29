@@ -10,14 +10,4 @@ public class ButtonManager : MonoBehaviour {
 		button = PressedButton.text;
 		PuzzleManager.instance.CurrentlyPressed (button);
     }
-    
-    // Use this for initialization
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
 }

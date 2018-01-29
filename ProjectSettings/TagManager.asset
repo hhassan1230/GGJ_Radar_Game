@@ -9,6 +9,9 @@ TagManager:
   - Goal
   - PickUp
   - Ends
+  - Blip
+  - Title
+  - Text
   layers:
   - Default
   - TransparentFX
